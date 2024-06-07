@@ -225,6 +225,14 @@
             contents.forEach(content => content.style.display = 'none');
             document.getElementById(contentId).style.display = 'block';
         }
+
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.querySelector('.search-box input[type="text"]').value;
+            if (query) {
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            }
+        }
     </script>
 </head>
 <body>
@@ -238,8 +246,10 @@
             <a href="#" onclick="showContent('kontaktContent')">Kontakt</a>
         </nav>
         <div class="search-box">
-            <input type="text" name="q" placeholder="Suchen...">
-            <input type="submit" value="Suchen">
+            <form onsubmit="handleSearch(event)">
+                <input type="text" name="q" placeholder="Suchen...">
+                <input type="submit" value="Suchen">
+            </form>
         </div>
     </header>
 

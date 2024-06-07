@@ -225,6 +225,14 @@
             contents.forEach(content => content.style.display = 'none');
             document.getElementById(contentId).style.display = 'block';
         }
+
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.querySelector('.search-box input[type="text"]').value;
+            if (query) {
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            }
+        }
     </script>
 </head>
 <body>
@@ -238,8 +246,10 @@
             <a href="#" onclick="showContent('kontaktContent')">Kontakt</a>
         </nav>
         <div class="search-box">
-            <input type="text" name="q" placeholder="Suchen...">
-            <input type="submit" value="Suchen">
+            <form onsubmit="handleSearch(event)">
+                <input type="text" name="q" placeholder="Suchen...">
+                <input type="submit" value="Suchen">
+            </form>
         </div>
     </header>
 
@@ -332,8 +342,8 @@
         </div>
         <div class="kontakt-info-container">
             <p>Wir laden Sie herzlich zu einem Dialog ein! Nehmen Sie Kontakt mit uns auf und wir werden uns so schnell wie möglich bei Ihnen melden.</p>
-            <p><strong>Telefon:</strong> +41 76 743 95 36</p>
-            <p><strong>E-Mail:</strong> <a href="mailto:help.sa.synergy@gmail.com">help.sa.synergy@gmail.com</a></p>
+            <p><strong>Telefon:</strong> +41 44 620 17 35</p>
+            <p><strong>E-Mail:</strong> <a href="mailto:kontakt@sa-synergy.com">kontakt@sa-synergy.com</a></p>
             <p><strong>Adresse:</strong><br>
             SA Synergy<br>
             Konradstrasse 14<br>
